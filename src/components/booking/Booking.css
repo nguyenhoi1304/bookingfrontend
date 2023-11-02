@@ -1,0 +1,98 @@
+.reserve {
+  width: 70%;
+  margin: 0 auto;
+}
+.headers {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  column-gap: 80px;
+  margin-top: 40px;
+  background-color: white;
+  color: #000;
+}
+.left_Item p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+/* css date*/
+.dateLeft {
+  margin-top: 40px;
+}
+.dateLeft p {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.headerSearchText {
+  position: relative;
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+.date {
+  position: absolute;
+  left: 0;
+  margin-top: 10px;
+  width: 400px;
+  height: 300px;
+}
+
+.date_right {
+  float: right;
+  width: 50%;
+  font-size: 1.3rem;
+}
+
+.date_right input {
+  height: 40px;
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 1rem;
+}
+.date_right p {
+  margin-top: 15px;
+}
+
+.Container {
+  margin-top: 450px;
+}
+.Container span {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.Item {
+  margin-top: 20px;
+}
+
+.ItemInfo .Title {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.ItemInfo .Desc {
+  font-size: 1.1rem;
+}
+
+.SelectRooms {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.room {
+  font-size: 1.2rem;
+  margin-right: 20px;
+}
+
+.Price {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.Button {
+  width: 250px;
+  height: 70px;
+  font-size: 1.2rem;
+  margin: 35px 15px 0 0px;
+}
