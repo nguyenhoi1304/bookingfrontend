@@ -68,7 +68,6 @@ const Booking = () => {
         console.log(error);
       });
   }, [dateStart, dateEnd, hotelId]);
-  console.log(room);
 
   const dateBookingStart = dateStart.split("/");
   const dateBookingEnd = dateEnd.split("/");
