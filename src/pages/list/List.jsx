@@ -4,13 +4,12 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetchApi from "../../use-hook/useFetchApi";
-import { useDispatch } from "react-redux";
-import { searchActions } from "../../store/searchHotel";
+import { SearchContext } from "../../context/SearchContext";
 
 const List = () => {
   const location = useLocation();
@@ -20,14 +19,14 @@ const List = () => {
   const [options, setOptions] = useState(location.state.options);
   const [min, setMin] = useState();
   const [max, setMax] = useState();
-  const dispatch = useDispatch();
 
-  const numberPeople = options.adult + options.children;
-  const manyRoom = options.room;
+  const numberPeople = options?.adult + options?.children;
+  const manyRoom = options?.room;
   const dateBook = format(dates[0]?.startDate, "MM/dd/yyyy");
+  console.log(destination, dates, options, numberPeople, manyRoom);
 
   const { data, loading, error, resetFetchApi } = useFetchApi(
-    `https://booking-backend-s33n.onrender.com/api/hotels/SearchHotels?city=${destination}&people=${numberPeople}&dateBook=${dateBook}&manyRoom=${manyRoom}&min=${
+    `http://localhost:5000/api/hotels/SearchHotels?city=${destination}&people=${numberPeople}&dateBook=${dateBook}&manyRoom=${manyRoom}&min=${
       min || 0
     }&max=${max || 999}`
   );
@@ -35,6 +34,7 @@ const List = () => {
   const handleSearch = () => {
     resetFetchApi();
   };
+
   return (
     <div>
       <Navbar />
@@ -114,7 +114,6 @@ const List = () => {
                     type="number"
                     min={1}
                     className="lsOptionInput"
-                    onChange={(e) => setOptions(e.target.value)}
                     placeholder={options.room}
                   />
                 </div>

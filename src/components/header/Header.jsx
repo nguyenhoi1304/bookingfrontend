@@ -9,15 +9,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./header.css";
 import { DateRange } from "react-date-range";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { searchActions } from "../../store/searchHotel";
+import { SearchContext } from "../../context/SearchContext";
 const Header = ({ type }) => {
-  const dispatch = useDispatch();
   const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [dates, setDates] = useState([
@@ -45,10 +43,10 @@ const Header = ({ type }) => {
     });
   };
 
+  const { dispatch } = useContext(SearchContext);
+
   const handleSearch = () => {
-    dispatch(searchActions.SEARCH_CITY(destination));
-    dispatch(searchActions.SEARCH_DATES(dates));
-    dispatch(searchActions.SEARCH_OPTIONS(options));
+    dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
   };
 

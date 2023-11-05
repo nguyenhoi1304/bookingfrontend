@@ -3,7 +3,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
   const { data, loading, error } = useFetchApi(
-    "https://booking-backend-s33n.onrender.com/api/hotels?limit=4&featured=true"
+    "http://localhost:5000/api/hotels?limit=4&featured=true"
   );
   return (
     <div className="fp">

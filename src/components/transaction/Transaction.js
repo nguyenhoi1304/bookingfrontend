@@ -29,12 +29,9 @@ const Transaction = () => {
   useEffect(() => {
     const getTransaction = async () => {
       await axios
-        .post(
-          "https://booking-backend-s33n.onrender.com/api/transaction/user",
-          {
-            user: user,
-          }
-        )
+        .post("http://localhost:5000/api/transaction/user", {
+          user: user,
+        })
         .then(function (response) {
           console.log(response.data);
           setData(response.data);
@@ -90,7 +87,7 @@ const Transaction = () => {
                 <td>{item.hotel.name}</td>
                 <td style={{ padding: "0 10px" }}>
                   {item?.room?.map((item) => (
-                    <> {item.roomNumbers.join(",")}</>
+                    <div key={item._id}> [{item.roomNumbers.join(",")}]</div>
                   ))}
                 </td>
                 <td>

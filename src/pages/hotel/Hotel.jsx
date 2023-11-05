@@ -12,7 +12,7 @@ const Hotel = () => {
   const { hotelId } = useParams();
 
   const { data } = useFetchApi(
-    `https://booking-backend-s33n.onrender.com/api/hotels/find/${hotelId}`
+    `http://localhost:5000/api/hotels/find/${hotelId}`
   );
 
   return (

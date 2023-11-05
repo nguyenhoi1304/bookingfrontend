@@ -21477,9 +21477,7 @@
           var e,
             t,
             n,
-            r = mn(
-              "https://booking-backend-s33n.onrender.com/api/hotels/countByCitys"
-            ),
+            r = mn("http://localhost:5000/api/hotels/countByCitys"),
             a = r.data,
             o = r.loading;
           r.error;
@@ -21566,9 +21564,7 @@
           });
         },
         xn = function () {
-          var e = mn(
-              "https://booking-backend-s33n.onrender.com/api/hotels?limit=4&featured=true"
-            ),
+          var e = mn("http://localhost:5000/api/hotels?limit=4&featured=true"),
             t = e.data,
             n = e.loading;
           e.error;
@@ -26751,9 +26747,7 @@
           });
         },
         Zu = function () {
-          var e = mn(
-              "https://booking-backend-s33n.onrender.com/api/hotels/countByType"
-            ),
+          var e = mn("http://localhost:5000/api/hotels/countByType"),
             t = e.data,
             n = e.loading;
           e.error;
@@ -26807,11 +26801,7 @@
         $u = function () {
           var e,
             t = A().hotelId,
-            n = mn(
-              "https://booking-backend-s33n.onrender.com/api/hotels/find/".concat(
-                t
-              )
-            ).data;
+            n = mn("http://localhost:5000/api/hotels/find/".concat(t)).data;
           return (0, bn.jsxs)("div", {
             children: [
               (0, bn.jsx)(Vu, {}),
@@ -27039,7 +27029,7 @@
               "MM/dd/yyyy"
             ),
             E = mn(
-              "https://booking-backend-s33n.onrender.com/api/hotels/SearchHotels?city="
+              "http://localhost:5000/api/hotels/SearchHotels?city="
                 .concat(u, "&people=")
                 .concat(O, "&dateBook=")
                 .concat(j, "&manyRoom=")
@@ -27264,13 +27254,10 @@
                             t.preventDefault(),
                             (e.next = 3),
                             hn
-                              .post(
-                                "https://booking-backend-s33n.onrender.com/api/auth/login",
-                                {
-                                  username: i,
-                                  password: n,
-                                }
-                              )
+                              .post("http://localhost:5000/api/auth/login", {
+                                username: i,
+                                password: n,
+                              })
                               .then(function (e) {
                                 localStorage.setItem("USER__ARRAY", i), l("/");
                               })
@@ -27348,14 +27335,11 @@
                             t.preventDefault(),
                             (e.next = 3),
                             hn
-                              .post(
-                                "https://booking-backend-s33n.onrender.com/api/auth/register",
-                                {
-                                  email: s,
-                                  username: i,
-                                  password: n,
-                                }
-                              )
+                              .post("http://localhost:5000/api/auth/register", {
+                                email: s,
+                                username: i,
+                                password: n,
+                              })
                               .then(function (e) {
                                 console.log(e.data.user), f("/login");
                               })
@@ -27460,11 +27444,7 @@
               return e.search.options;
             }).room,
             T = A().hotelId,
-            _ = mn(
-              "https://booking-backend-s33n.onrender.com/api/hotels/find/".concat(
-                T
-              )
-            ),
+            _ = mn("http://localhost:5000/api/hotels/find/".concat(T)),
             M = _.data,
             R = (_.loading, _.error, _.resetFetchApi, M),
             I = (0, Ko.default)(
@@ -27478,7 +27458,7 @@
           (0, t.useEffect)(
             function () {
               hn.get(
-                "https://booking-backend-s33n.onrender.com/api/hotels/room?hotelId="
+                "http://localhost:5000/api/hotels/room?hotelId="
                   .concat(T, "&dateStart=")
                   .concat(I, "&dateEnd=")
                   .concat(z, "&manyRoom=")
@@ -27808,19 +27788,16 @@
                   }),
                   (0, bn.jsx)("button", {
                     onClick: function () {
-                      hn.post(
-                        "https://booking-backend-s33n.onrender.com/api/transaction",
-                        {
-                          user: r,
-                          hotel: T,
-                          room: Y,
-                          dateStart: I,
-                          dateEnd: z,
-                          price: B,
-                          payment: u,
-                          status: c,
-                        }
-                      )
+                      hn.post("http://localhost:5000/api/transaction", {
+                        user: r,
+                        hotel: T,
+                        room: Y,
+                        dateStart: I,
+                        dateEnd: z,
+                        price: B,
+                        payment: u,
+                        status: c,
+                      })
                         .then(function (e) {
                           a("/transaction/".concat(r)), console.log(e.data);
                         })
@@ -27854,7 +27831,7 @@
                               (t.next = 2),
                               hn
                                 .post(
-                                  "https://booking-backend-s33n.onrender.com/api/transaction/user",
+                                  "http://localhost:5000/api/transaction/user",
                                   { user: e }
                                 )
                                 .then(function (e) {

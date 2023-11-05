@@ -13,8 +13,8 @@ import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useContext, useEffect, useState } from "react";
+import { SearchContext } from "../../context/SearchContext";
 
 const Booking = () => {
   const userActive = localStorage.getItem("USER__ARRAY");
@@ -37,16 +37,18 @@ const Booking = () => {
     },
   ]);
 
-  const optionsStore = useSelector((state) => state.search.options);
+  //Lấy options
+  const { options } = useContext(SearchContext);
 
+  console.log(options);
   // lấy ra số phòng người dùng muốn ở
-  const manyRoom = optionsStore.room;
+  const manyRoom = options.room;
 
   const { hotelId } = useParams();
 
   //Data trả về là chính hotel đã chọn đó với phòng đã chọn
   const { data, loading, error, resetFetchApi } = useFetchApi(
-    `https://booking-backend-s33n.onrender.com/api/hotels/find/${hotelId}`
+    `http://localhost:5000/api/hotels/find/${hotelId}`
   );
 
   const hotels = data;
@@ -58,7 +60,7 @@ const Booking = () => {
   useEffect(() => {
     axios
       .get(
-        `https://booking-backend-s33n.onrender.com/api/hotels/room?hotelId=${hotelId}&dateStart=${dateStart}&dateEnd=${dateEnd}&manyRoom=${manyRoom}`
+        `http://localhost:5000/api/hotels/room?hotelId=${hotelId}&dateStart=${dateStart}&dateEnd=${dateEnd}&manyRoom=${manyRoom}`
       )
       .then(function (response) {
         console.log(response.data);
@@ -91,7 +93,7 @@ const Booking = () => {
 
   const handleClick = () => {
     axios
-      .post("https://booking-backend-s33n.onrender.com/api/transaction", {
+      .post("http://localhost:5000/api/transaction", {
         user: userActive,
         hotel: hotelId,
         room: roomId,
