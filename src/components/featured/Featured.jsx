@@ -6,7 +6,7 @@ import "./featured.css";
 
 const Featured = () => {
   const { data, loading, error } = useFetchApi(
-    "http://localhost:5000/api/hotels/countByCitys"
+    "https://booking-backend-s33n.onrender.com/api/hotels/countByCitys"
   );
 
   return (

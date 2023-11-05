@@ -29,9 +29,12 @@ const Transaction = () => {
   useEffect(() => {
     const getTransaction = async () => {
       await axios
-        .post("http://localhost:5000/api/transaction/user", {
-          user: user,
-        })
+        .post(
+          "https://booking-backend-s33n.onrender.com/api/transaction/user",
+          {
+            user: user,
+          }
+        )
         .then(function (response) {
           console.log(response.data);
           setData(response.data);

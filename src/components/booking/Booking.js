@@ -48,7 +48,7 @@ const Booking = () => {
 
   //Data trả về là chính hotel đã chọn đó với phòng đã chọn
   const { data, loading, error, resetFetchApi } = useFetchApi(
-    `http://localhost:5000/api/hotels/find/${hotelId}`
+    `https://booking-backend-s33n.onrender.com/api/hotels/find/${hotelId}`
   );
 
   const hotels = data;
@@ -60,7 +60,7 @@ const Booking = () => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/api/hotels/room?hotelId=${hotelId}&dateStart=${dateStart}&dateEnd=${dateEnd}&manyRoom=${manyRoom}`
+        `https://booking-backend-s33n.onrender.com/api/hotels/room?hotelId=${hotelId}&dateStart=${dateStart}&dateEnd=${dateEnd}&manyRoom=${manyRoom}`
       )
       .then(function (response) {
         console.log(response.data);
@@ -93,7 +93,7 @@ const Booking = () => {
 
   const handleClick = () => {
     axios
-      .post("http://localhost:5000/api/transaction", {
+      .post("https://booking-backend-s33n.onrender.com/api/transaction", {
         user: userActive,
         hotel: hotelId,
         room: roomId,

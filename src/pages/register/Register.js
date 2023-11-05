@@ -13,7 +13,7 @@ const Register = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/api/auth/register", {
+      .post("https://booking-backend-s33n.onrender.com/api/auth/register", {
         email: email,
         username: username,
         password: password,

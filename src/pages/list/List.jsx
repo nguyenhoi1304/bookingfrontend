@@ -26,7 +26,7 @@ const List = () => {
   console.log(destination, dates, options, numberPeople, manyRoom);
 
   const { data, loading, error, resetFetchApi } = useFetchApi(
-    `http://localhost:5000/api/hotels/SearchHotels?city=${destination}&people=${numberPeople}&dateBook=${dateBook}&manyRoom=${manyRoom}&min=${
+    `https://booking-backend-s33n.onrender.com/api/hotels/SearchHotels?city=${destination}&people=${numberPeople}&dateBook=${dateBook}&manyRoom=${manyRoom}&min=${
       min || 0
     }&max=${max || 999}`
   );
